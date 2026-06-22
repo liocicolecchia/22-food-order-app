@@ -18,11 +18,11 @@ function cartReducer(state, action) {
       const existingItem = state.items[existingCartItemIndex];
       const updatedItem = {
         ...existingItem,
-        quantitiy: existingItem.quantitiy + 1,
+        quantity: existingItem.quantity + 1,
       };
       updatedItems[existingCartItemIndex] = updatedItem;
     } else {
-      updatedItems.push({ ...action.item, quantitiy: 1 });
+      updatedItems.push({ ...action.item, quantity: 1 });
     }
 
     return { ...state, items: updatedItems };
@@ -34,12 +34,12 @@ function cartReducer(state, action) {
 
     const updatedItems = [...state.items];
 
-    if (existingCartItem.quantitiy === 1) {
+    if (existingCartItem.quantity === 1) {
       updatedItems.splice(existingCartItemIndex, 1);
     } else {
       const updatedItem = {
         ...existingCartItem,
-        quantitiy: existingCartItem.quantitiy - 1,
+        quantity: existingCartItem.quantity - 1,
       };
       updatedItems[existingCartItemIndex] = updatedItem;
     }
